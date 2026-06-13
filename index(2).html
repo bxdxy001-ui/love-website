@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รักเราไหม 💖</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:40px;background:#ffd6ea;">
+<h1>💖 เว็บบอกรัก 💖</h1>
+<p>กรอกชื่อก่อนเล่น</p>
+<input id="name" placeholder="ชื่อของคุณ">
+<button onclick="start()">เริ่ม</button>
+
+<div id="game" style="display:none;">
+<h2 id="q"></h2>
+<button onclick="love()">รัก 💖</button>
+<button id="no" onmouseover="moveNo()" style="position:absolute;">ไม่รัก 😢</button>
+</div>
+
+<div id="result" style="display:none;">
+<h1>🧸</h1>
+<h2>รักเธอเหมือนกัน 💖</h2>
+<p>จาก ไซฟุลเลาะฮ์ แอ๊กซานด์</p>
+</div>
+
+<script>
+let username='';
+
+function start(){
+  username=document.getElementById('name').value.trim();
+  if(!username){ alert('กรุณาใส่ชื่อ'); return; }
+  document.getElementById('game').style.display='block';
+  document.getElementById('q').innerText=username+' รักเราไหม 💖';
+}
+
+function moveNo(){
+  const b=document.getElementById('no');
+  b.style.left=Math.random()*(window.innerWidth-120)+'px';
+  b.style.top=Math.random()*(window.innerHeight-80)+'px';
+}
+
+function love(){
+  document.getElementById('game').style.display='none';
+  document.getElementById('result').style.display='block';
+}
+</script>
+</body>
+</html>
